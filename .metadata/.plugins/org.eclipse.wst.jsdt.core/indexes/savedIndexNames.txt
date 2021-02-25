@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\gogodan\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1817123846.index
+1994511118.index
+2184317618.index
+2487545169.index
+467088490.index
+1244050504.index
