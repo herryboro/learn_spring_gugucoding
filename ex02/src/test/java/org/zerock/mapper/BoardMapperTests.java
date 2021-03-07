@@ -32,4 +32,45 @@ public class BoardMapperTests {
 		mapper.insert(board);
 		log.info("board객체: " + board);
 	}
+	
+	@Test
+	public void testInsertSelectkey() {
+		BoardVO board = new BoardVO();
+		board.setTitle("새로 작성하는 글 select key");
+		board.setContent("새로 작성하는 글 select key");
+		board.setWriter("newbie");
+		mapper.insertSelectKey(board);
+		log.info("board 객체: " + board);
+	}
+	
+	@Test
+	public void testRead() {
+		// 존재하는 게시물 번호로 테스트
+		BoardVO board = mapper.read(13L);
+		log.info("board read: " + board);
+	}
+	
+	@Test
+	public void testDelete() {
+		log.info("Delete count: " + mapper.delete(15L)); 
+	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO board = new BoardVO();
+		board.setBno(5L);
+		board.setTitle("수정된 제목");
+		board.setContent("수정된 내용");
+		board.setWriter("user00");
+		
+		int count = mapper.update(board);
+		log.info("Update count: " + count);
+	}
 }
+
+
+
+
+
+
+
