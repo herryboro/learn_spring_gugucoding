@@ -19,6 +19,8 @@ public class BoardServiceimpl implements BoardService {
 	
 	@Override
 	public void register(BoardVO board) {
+		System.out.println("한글깨짐 확인: " + board.getContent());
+		System.out.println("한글깨짐 확인: " + board.getTitle());
 		log.info("register...." + board);
 		mapper.insertSelectKey(board);
 	}
