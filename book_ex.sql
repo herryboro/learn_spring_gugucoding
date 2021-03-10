@@ -20,10 +20,42 @@ values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
 
 commit;
 
-select * from tbl_board where bno > 0 order by bno asc;
+select * from tbl_board order by bno desc;
+select /*+ INDEX_DESC (tbl_board pk_board) */ * from tbl_board; 
+select /*+ index_asc (tbl_board pk_board) */ * from tbl_board;
 
-select sysdate from dual;
-select * from tbl_board where bno > 0;
-select seq_board.nextval from dual;
+/* hint 문법 */
+-- select /*+ hint name(param...) */ column name, ... from table name ...
+
+/* full 힌트 */
+select /*+ full(tbl_board) */ * from tbl_board order by bno desc;
+
+/* index_asc, index_desc 힌트 */
+select /*+ index_asc(tbl_board pk_board) */ * from tbl_board where bno > 0;
+
+/* rownum */
+select rownum, bno, title from tbl_board where bno > 0 order by bno;
+select /*+ full(tbl_board) */ rownum, bno, title from tbl_board where bno > 0 order by bno;
+select /*+ index_asc(tbl_board pk_board) */ rownum, bno, title, content from tbl_board;
+select /*+ index_desc(tbl_board pk_board) */ rownum, bno, title, content from tbl_board where bno > 0;
+
+select /*+ index_desc(tbl_board pk_board) */ rownum, bno, title, content 
+    from tbl_board where rownum <= 20;
+
+/* 인라인 뷰 */
+select bno, title, content, writer, regdate, updatedate
+    from(select /*+ index_desc(tbl_board pk_board) */
+        rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where rownum <= 10
+    )
+    where rn > 0;
+
+
+
+
+
+
+
+
+
 
 
