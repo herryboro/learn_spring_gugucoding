@@ -22,7 +22,7 @@
       
       <div class="form-group">
           <label>Bno</label> <input class="form-control" name='bno'
-          	value='<c:out value="${board.bno }"/>' readonly="readonly">
+          	value='<c:out value="${board.bno}"/>' readonly="readonly">
       </div>
              
       <div class="form-group">

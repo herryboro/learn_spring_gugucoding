@@ -45,9 +45,18 @@ select /*+ index_desc(tbl_board pk_board) */ rownum, bno, title, content
 /* 인라인 뷰 */
 select bno, title, content, writer, regdate, updatedate
     from(select /*+ index_desc(tbl_board pk_board) */
-        rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where rownum <= 10
+        rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where rownum <= 20
     )
-    where rn > 0;
+    where rn > 10;
+    
+select * from tbl_board where bno = 39;
+
+update tbl_board
+			set title = '테스트 제목',
+			content = '테스트 내용',
+			writer = 'user00',
+			updateDate = sysdate
+			where bno = 4;
 
 
 
