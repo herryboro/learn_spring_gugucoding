@@ -47,7 +47,7 @@ select bno, title, content, writer, regdate, updatedate
     from(select /*+ index_desc(tbl_board pk_board) */
         rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where rownum <= 20
     )
-    where rn > 10;
+    where rn > 0;
     
 select * from tbl_board where bno = 39;
 
@@ -57,6 +57,42 @@ update tbl_board
 			writer = 'user00',
 			updateDate = sysdate
 			where bno = 4;
+            
+select count(*) from tbl_board where bno > 0;
+
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+insert into tbl_board (bno, title, content, writer) 
+values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
+
+commit;
+
+select * from (select /*+ index_dese(tbl_board pk_board) */
+                   rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where (title like '%테스트%' or content like '%테스트%') and rownum <= 20)
+    where rn > 10;
+    
+select bno, title, content, writer, regdate, updatedate
+    from(select /*+ index_desc(tbl_board pk_board) */
+            rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 
+        )
+    
+
 
 
 
