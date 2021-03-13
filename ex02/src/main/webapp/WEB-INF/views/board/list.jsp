@@ -70,7 +70,7 @@
 								</select> 
 								<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'/> 
 								<input type='hidden' name='pageNum'	value='<c:out value="${pageMaker.cri.pageNum}"/>'/> 
-								<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/>
+								<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>'/>								
 								<button class='btn btn-default'>Search</button>
 							</form>
 						</div>
@@ -98,6 +98,8 @@
 			<form action="/board/list" method="get" id="actionForm">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+				<input type="hidden" name="type" value="${pageMaker.cri.type}">
+				<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
 			</form>
 			
 			
@@ -176,7 +178,6 @@
    		let searchForm = $("#searchForm");
    		
    		$("#searchForm button").on("click", function(e) {
-   			console.log(searchForm.find("option:selected").val());
    			if(!searchForm.find("option:selected").val()) {
    				alert("검색종류를 선택하세요");
    				return false;
