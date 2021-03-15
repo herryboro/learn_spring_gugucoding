@@ -83,8 +83,8 @@ public class BoardMapperTests {
 	@Test
 	public void testSearch() {
 		Criteria cri = new Criteria();
-		cri.setKeyword("새로");
-		cri.setType("TCW");
+//		cri.setKeyword("");
+//		cri.setType("");
 		
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		list.forEach(board -> log.info(board));

@@ -13,6 +13,7 @@ public class PageDTO {
 	private Criteria cri;
 	
 	public PageDTO(int total, Criteria cri) {
+		System.out.println("--------------pageDto-------------");
 		System.out.println("total: " + total + ", cri.getPageNum(): " + cri.getPageNum() + ", cri.getAmount(): " + cri.getAmount());
 		this.total = total;
 		this.cri = cri;
@@ -34,6 +35,7 @@ public class PageDTO {
 		System.out.println("prev: " + prev);
 		this.next = this.endPage < realEnd;
 		System.out.println("next: " + next);
+		System.out.println("--------------/pageDto-------------");
 	}
 	
 }

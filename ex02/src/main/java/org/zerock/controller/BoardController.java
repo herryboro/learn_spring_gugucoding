@@ -40,7 +40,6 @@ public class BoardController {
 		model.addAttribute("pageMaker", new PageDTO(total, cri));
 	}
 	
-	
 	@GetMapping("/register")
 	public void register() {
 		
