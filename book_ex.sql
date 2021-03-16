@@ -84,13 +84,17 @@ values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
 commit;
 
 select * from (select /*+ index_dese(tbl_board pk_board) */
-                   rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where (title like '%테스트%' or content like '%테스트%') and rownum <= 20)
+                   rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where rownum <= 20)
     where rn > 10;
-    
+
+        
 select bno, title, content, writer, regdate, updatedate
-    from(select /*+ index_desc(tbl_board pk_board) */
-            rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 
-        )
+    from(select /*+ index_desc(tbl_board pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate 
+            from tbl_board 
+            where (title like '%'||'테스트'||'%' or content like '%'||'테스트'||'%' or writer like '%'||'테스트'||'%') 
+                and 
+                rownum <= 10)
+			where rn > 0;
     
 
 
