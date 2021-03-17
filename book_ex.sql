@@ -2,7 +2,7 @@ create user book_ex identified by book_ex;
 grant connect, dba to book_ex;
 exec dbms_xdb.sethttpport(9090);
 
-create sequence seq_board;
+
 
 create table tbl_board(
     bno number(10,0),
@@ -13,7 +13,23 @@ create table tbl_board(
     updatedate date default sysdate
 );
 
+create table tbl_reply(
+    rno number(10, 0),
+    bno number(10, 0) not null,
+    reply varchar2(1000) not null,
+    replyer varchar2(50) not null,
+    replyDate date default sysdate,
+    updateDate date default sysdate
+); 
+
+-- sqeuence
+create sequence seq_board;
+create sequence seq_reply;
+
+-- alter
 alter table tbl_board add constraint pk_board primary key (bno);
+alter table tbl_reply add constraint pk_reply primary key(rno);
+alter table tbl_reply add constraint fk_reply_board foreign key(bno) references tbl_board(bno);
 
 insert into tbl_board (bno, title, content, writer) 
 values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
@@ -95,6 +111,11 @@ select bno, title, content, writer, regdate, updatedate
                 and 
                 rownum <= 10)
 			where rn > 0;
+            
+select * from tbl_board where rownum < 10 order by bno desc;
+select * from tbl_reply order by rno desc;
+
+
     
 
 
