@@ -69,6 +69,23 @@
 </div>
 <!-- /.row -->
 
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		console.log("===============");
+		console.log("JS TEST");
+		
+		let bnoValue = '<c:out value="${board.bno}"/>';
+		
+		// for replyService add test
+		replyService.add(
+			{reply: "JS Test", replyer: "tester", bno: bnoValue},
+			function(result) {
+				alert("RESULT: " + result);
+			}
+		)
+	});
+</script>
 <!-- form 태그로 처리시 필요한 script -->
 <script type="text/javascript">
 	$(document).ready(function() {

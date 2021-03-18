@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class SampleController {
 
-	@GetMapping(value = "/getText", produces = "text/plain; charset=UTF-8")
+	@GetMapping(value = "/getText", produces = "text/plain; charset=UTF-8") 	// produces = MediaType.TEXT_PLAIN_VALUE + ";" + " charset=UTF-8"
 	public String getText() {
 
 		log.info("MIME TYPE: " + MediaType.TEXT_PLAIN_VALUE);
@@ -63,7 +63,10 @@ public class SampleController {
 		return map;
 	}
 	
-	@GetMapping(value = "/check", params = {"height", "weight"})
+	@GetMapping(value = "/check", 
+			produces = { MediaType.APPLICATION_JSON_UTF8_VALUE,
+			MediaType.APPLICATION_XML_VALUE }, 
+			params = {"height", "weight"})
 	public ResponseEntity<SampleVO> check(Double height, Double weight) {
 		SampleVO vo = new SampleVO(0, "" + height, "" + weight);
 		
