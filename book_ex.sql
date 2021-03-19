@@ -115,6 +115,11 @@ select bno, title, content, writer, regdate, updatedate
 select * from tbl_board where rownum < 10 order by bno desc;
 select * from tbl_reply order by rno desc;
 
+select rno, bno, reply, replyer, replyDate, updatedate
+    from tbl_reply
+    where bno = 134
+    order by rno asc;
+
 
     
 
