@@ -24,17 +24,19 @@
  				}
  			}
  		})
- 	}
+ 	}	
  	
  	function getList(param, callback, error) {
+ 		console.log("getList......");
  		let bno = param.bno;
  		let page = param.page || 1;
+ 		console.log("bno: " + bno);
+ 		console.log("page: " + page);
  		
  		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
  			function(data) {
- 				console.log(data);
  				if(callback) {
- 					callback(data);
+ 					callback(data.replyCnt, data.list);		// 댓글의 숫자와 목록을 가져옴
  				}
  			}
  		).fail(function(xhr, status, err) {
@@ -42,7 +44,7 @@
  				error();
  			}
  		});
- 	} 
+ 	}
  	
  	function remove(rno, callback, error) {
  		$.ajax({
