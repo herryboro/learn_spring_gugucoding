@@ -27,11 +27,8 @@
  	}	
  	
  	function getList(param, callback, error) {
- 		console.log("getList......");
  		let bno = param.bno;
  		let page = param.page || 1;
- 		console.log("bno: " + bno);
- 		console.log("page: " + page);
  		
  		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
  			function(data) {

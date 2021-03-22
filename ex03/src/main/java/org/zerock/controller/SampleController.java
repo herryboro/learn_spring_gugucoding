@@ -74,8 +74,10 @@ public class SampleController {
 		
 		if(height < 150) {
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
+			log.info("result: " + result);
 		} else {
 			result = ResponseEntity.status(HttpStatus.OK).body(vo);
+			log.info("result: " + result);
 		}
 		return result;
 	}
@@ -88,7 +90,7 @@ public class SampleController {
 	
 	@PostMapping("/ticket")
 	public Ticket convert(@RequestBody Ticket ticket) {
-		log.info("convert...........ticket" + ticket);
+		log.info("convert...........ticket " + ticket);
 		return ticket;
 	}
 }
