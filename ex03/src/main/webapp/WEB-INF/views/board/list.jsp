@@ -174,7 +174,7 @@
    			actionForm.submit();
    		});
    		
-   		let  = $("#searchForm");
+   		let searchForm = $("#searchForm");
    		
    		$("#searchForm button").on("click", function(e) {
    			if(!searchForm.find("option:selected").val()) {

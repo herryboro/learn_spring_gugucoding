@@ -31,6 +31,9 @@ alter table tbl_board add constraint pk_board primary key (bno);
 alter table tbl_reply add constraint pk_reply primary key(rno);
 alter table tbl_reply add constraint fk_reply_board foreign key(bno) references tbl_board(bno);
 
+-- cteate index
+create index idx_reply on tbl_reply(bno desc, rno asc);
+
 insert into tbl_board (bno, title, content, writer) 
 values (seq_board.nextval, '테스트 제목','테스트 내용','user00');
 
@@ -120,7 +123,23 @@ select rno, bno, reply, replyer, replyDate, updatedate
     where bno = 134
     order by rno asc;
 
+select /*+ index(tbl_reply idx_reply) */
+    rownum rn, bno, rno, reply, replyer, replyDate, updatedate
+    from tbl_reply
+    where bno = 130 and rno > 0;
+    
+select * from tbl_reply where bno = 134;
 
+select rno, bno, reply, replyer, replydate, updatedate
+    from (select /*+INDEX(tbl_reply idx_reply) */ 
+            rownum rn,  rno, bno, reply, replyer, replyDate, updatedate
+            from tbl_reply
+            where bno = 130
+            and rno > 0
+            and rownum <= 20)
+    where rn > 10;
+    
+select count(rno) from tbl_reply where bno = 130;
     
 
 
