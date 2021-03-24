@@ -140,6 +140,26 @@ select rno, bno, reply, replyer, replydate, updatedate
     where rn > 10;
     
 select count(rno) from tbl_reply where bno = 130;
+
+
+select bno, title, content, writer, regdate, updatedate
+    from(select /*+ index_desc(tbl_board pk_board) */
+            rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 						
+			rownum <= 10)
+    where rn > 0;
+    
+select * from tbl_board where bno = 123;
+
+select count(rno) from tbl_reply where bno = 123;
+
+select rno, bno, reply, replyer, replydate, updatedate
+    from (select /*+INDEX(tbl_reply idx_reply) */ 
+            rownum rn,  rno, bno, reply, replyer, replyDate, updatedate
+            from tbl_reply
+            where bno =  123
+            and rno > 0
+            and rownum <= 10)
+    where rn > 0;
     
 
 

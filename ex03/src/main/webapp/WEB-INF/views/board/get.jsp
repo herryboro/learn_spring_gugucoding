@@ -145,7 +145,8 @@
 		showList(1);
 		function showList(page) {
 			console.log("show list: " + page);
-			replyService.getList({bno: bnoValue, page: page || 1}, function(replyCnt, list) {		
+			replyService.getList({bno: bnoValue, page: page || 1}, function(replyCnt, list) {	
+				
 			    if(page == -1){
 			      pageNum = Math.ceil(replyCnt / 10.0);
 			      showList(pageNum);
