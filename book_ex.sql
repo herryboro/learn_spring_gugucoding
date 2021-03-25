@@ -22,6 +22,9 @@ create table tbl_reply(
     updateDate date default sysdate
 ); 
 
+create table tbl_sample1(col1 varchar2(500));
+create table tbl_sample2(col2 varchar2(50));
+
 -- sqeuence
 create sequence seq_board;
 create sequence seq_reply;
@@ -30,7 +33,12 @@ create sequence seq_reply;
 alter table tbl_board add constraint pk_board primary key (bno);
 alter table tbl_reply add constraint pk_reply primary key(rno);
 alter table tbl_reply add constraint fk_reply_board foreign key(bno) references tbl_board(bno);
+alter table tbl_board add(replycnt number default 0);
 
+-- update
+update tbl_board set replycnt = (select count(rno) from tbl_reply where tbl_reply.bno = tbl_board.bno);
+
+select count(rno) from tbl_reply where tbl_reply.bno = tbl_board.bno;
 -- cteate index
 create index idx_reply on tbl_reply(bno desc, rno asc);
 
@@ -113,53 +121,18 @@ select bno, title, content, writer, regdate, updatedate
             where (title like '%'||'테스트'||'%' or content like '%'||'테스트'||'%' or writer like '%'||'테스트'||'%') 
                 and 
                 rownum <= 10)
-			where rn > 0;
-            
-select * from tbl_board where rownum < 10 order by bno desc;
-select * from tbl_reply order by rno desc;
+			where rn > 0;              
 
-select rno, bno, reply, replyer, replyDate, updatedate
-    from tbl_reply
-    where bno = 134
-    order by rno asc;
-
-select /*+ index(tbl_reply idx_reply) */
-    rownum rn, bno, rno, reply, replyer, replyDate, updatedate
-    from tbl_reply
-    where bno = 130 and rno > 0;
-    
-select * from tbl_reply where bno = 134;
-
-select rno, bno, reply, replyer, replydate, updatedate
-    from (select /*+INDEX(tbl_reply idx_reply) */ 
-            rownum rn,  rno, bno, reply, replyer, replyDate, updatedate
-            from tbl_reply
-            where bno = 130
-            and rno > 0
-            and rownum <= 20)
-    where rn > 10;
-    
-select count(rno) from tbl_reply where bno = 130;
-
-
-select bno, title, content, writer, regdate, updatedate
-    from(select /*+ index_desc(tbl_board pk_board) */
-            rownum rn, bno, title, content, writer, regdate, updatedate from tbl_board where 						
+select bno, title, content, writer, regdate, updatedate, replycnt
+    from(select /*+ index_desc(tbl_board pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate, replycnt 
+            from tbl_board where 
 			rownum <= 10)
     where rn > 0;
     
-select * from tbl_board where bno = 123;
+select * from tbl_board;
 
-select count(rno) from tbl_reply where bno = 123;
+		
 
-select rno, bno, reply, replyer, replydate, updatedate
-    from (select /*+INDEX(tbl_reply idx_reply) */ 
-            rownum rn,  rno, bno, reply, replyer, replyDate, updatedate
-            from tbl_reply
-            where bno =  123
-            and rno > 0
-            and rownum <= 10)
-    where rn > 0;
     
 
 
