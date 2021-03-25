@@ -5,7 +5,21 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-03-24T02:10:00Z</updated>
+  <updated>2021-03-24T18:39:00Z</updated>
+  <entry>
+    <title>SpringOne Tour 2021: #Booternetes</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/03/24/springone-tour-2021-booternetes" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-03-24:4399</id>
+    <updated>2021-03-24T18:39:00Z</updated>
+    <content type="html">&lt;p&gt;Join &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt;, &lt;a href="http://twitter.com/ntschutta"&gt;Nate Schutta&lt;/a&gt;, &lt;a href="https://twitter.com/mkheck"&gt;Mark Heckler (@mkheck)&lt;/a&gt;, &lt;a href="https://twitter.com/ciberkleid"&gt;Cora Iberkleid (@ciberkleid)&lt;/a&gt;, &lt;a href="https://twitter.com/pczarkowski"&gt;Paul Czarkowski (@pczarkowski)&lt;/a&gt;, and &lt;a href="https://twitter.com/tiffanyfayj"&gt;Tiffany Jernigan (@tiffanyfayj)&lt;/a&gt; for this journey from code with Spring Boot to production on Kubernetes. &lt;/p&gt;
+&lt;p&gt;For more great Tanzu, Kubernetes, and Spring content, check out our &lt;a href="https://www.youtube.com/c/VMwareTanzu?"&gt;VMware Tanzu channel&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LfbU5xuR7Ck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - March 23rd, 2021</title>
     <link rel="alternate" href="https://spring.io/blog/2021/03/23/this-week-in-spring-march-23rd-2021" />
@@ -1123,32 +1137,6 @@ public class WebClientApplication {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - March 9th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/09/this-week-in-spring-march-9th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-10:4379</id>
-    <updated>2021-03-10T01:14:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! Tomorrow is the day of Spring One Tour - do &lt;em&gt;not&lt;/em&gt; miss this event! We&amp;rsquo;ve also got a lot to get into this week so, without further ado&amp;hellip;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In last week&amp;rsquo;s installment of a &lt;a href="https://spring.io/blog/2021/03/04/a-bootiful-podcast-spring-cloud-gateway-for-kubernetes-lead-chris-sterling-on-api-gateways-microservices-spring-cloud-and-more"&gt;&lt;em&gt;A Bootiful Podcast&lt;/em&gt;, I talk Spring Cloud Gateway for Kubernetes lead Chris Sterling on API Gateways, Microservices, Spring Cloud and more&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Tanzu Observability for Wavefront (formerly Wavefront) delivers scalable observability as a service where Spring developers can build analytics-driven dashboards based on multi-sourced data including metrics, traces, histograms, and span logs. The Spring team has worked side-by-side with the Tanzu Observability team to make the process quick and seamless?but there&amp;rsquo;s always room for improvement. You can provide feedback by participating in a user research effort going on right now and make your voice heard about how to make the Tanzu Observability experience with Spring better?choose a time good for you, &lt;a href="https://calendly.com/mgist1/spring-boot-wavefront"&gt;click here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I really enjoyed this &lt;a href="https://cacm.acm.org/magazines/2021/3/250706-a-second-conversation-with-werner-vogels/fulltext"&gt;Second Conversation with Amazon&amp;rsquo;s Werner Vogels from March 2021 in &lt;em&gt;Communications of the ACM&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I loved this post by &lt;a href="https://calendly.com/mgist1/spring-boot-wavefront?month=2021-03"&gt;https://calendly.com/mgist1/spring-boot-wavefront?month=2021-03&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/kotlin/status/1368082451877294081?s=12"&gt;Kotlin and RSocket tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1367629885036916739"&gt; Check out this neat talk from Microsoft&amp;rsquo;s Julien Dubois about running Spring in a serverless environment from DevNexus 2021&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Taboola has built a very interesting Spring Boot Actuator that helps you debug asynchronous code - &lt;a href="https://github.com/taboola/async-profiler-actuator-endpoint"&gt;taboola/async-profiler-actuator-endpoint&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The Baeldung blog has updated their article on &lt;a href="https://www.baeldung.com/spring-boot-security-autoconfiguration"&gt;Spring Boot Security autoconfiguration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;How to build an API to &lt;a href="https://codeburst.io/how-to-build-an-api-to-perform-web-scraping-in-spring-boot-e8bfaaa4622e"&gt;perform web scraping in Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=bg16bu_Gj-w"&gt;Example of CockroachDB &amp;amp; Java Spring Boot Application Architecture&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=m-7oUV1x7jc"&gt;Caching in Spring Boot with the Caffeine cache&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This looks interesing: &lt;a href="https://www.youtube.com/watch?v=Ll-Cz6h8s6I"&gt;Spring Boot password encrption with Jasypt&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
