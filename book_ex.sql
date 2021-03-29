@@ -131,6 +131,13 @@ select bno, title, content, writer, regdate, updatedate, replycnt
     
 select * from tbl_board;
 
+select bno, title, content, writer, regdate, updatedate, replycnt 
+    from(select /*+ index_desc(tbl_board pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate, replycnt
+            from tbl_board 
+            where (title like '%'||'Å×½ºÆ®'||'%') and
+            rownum <= 10)
+    where rn > 0;
+
 		
 
     
