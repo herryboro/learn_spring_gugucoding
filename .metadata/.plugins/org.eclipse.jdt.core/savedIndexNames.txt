@@ -76,7 +76,6 @@ INDEX VERSION 1.131+C:\gogodan\.metadata\.plugins\org.eclipse.jdt.core
 689072384.index
 3401642185.index
 478860011.index
-3828226526.index
 4114780338.index
 606019359.index
 2106131817.index

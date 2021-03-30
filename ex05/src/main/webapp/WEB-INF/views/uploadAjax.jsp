@@ -41,7 +41,7 @@
 				let inputFile = $("input[name = 'uploadFile']");
 				let files = inputFile[0].files;
 
-				//console.log(files);
+				console.log(files);
 
 				for (let i = 0; i < files.length; i++) {
 					if (!checkExtension(files[i].name, files[i].size)) {
@@ -56,7 +56,6 @@
 					contentType : false,
 					data: formData,
 					type : 'POST',
-					dataType : 'json',
 					success : function(result) {
 						alert("Upload");
 					}
