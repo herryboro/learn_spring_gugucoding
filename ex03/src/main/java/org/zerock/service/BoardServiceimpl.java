@@ -46,7 +46,7 @@ public class BoardServiceimpl implements BoardService {
 	
 	@Override
 	public List<BoardVO> getList(Criteria cri) {
-		log.info("get List with Criteria: " + cri);
+		log.info("get List with Criteria: " + cri.getPageNum());	
 		return mapper.getListWithPaging(cri);
 	}
 	

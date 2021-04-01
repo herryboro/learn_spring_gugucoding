@@ -15,6 +15,7 @@ public class PageDTO {
 	public PageDTO(int total, Criteria cri) {
 		System.out.println("--------------pageDto-------------");
 		System.out.println("total: " + total + ", cri.getPageNum(): " + cri.getPageNum() + ", cri.getAmount(): " + cri.getAmount());
+		
 		this.total = total;
 		this.cri = cri;
 		this.endPage = (int)(Math.ceil(cri.getPageNum() / 10.0)) * 10;
@@ -37,5 +38,4 @@ public class PageDTO {
 		System.out.println("next: " + next);
 		System.out.println("--------------/pageDto-------------");
 	}
-	
 }
